@@ -1,0 +1,28 @@
+-Document the errors you found and how you fixed them.
+
+When loading index.html in Google Chrome and then opening devtools, the console tab 
+shows a TypeError.  
+"Uncaught TypeError: Cannot read properties of undefined (reading 'price')
+calculateTotal @ cart.js:10
+(anonymous) @ cart.js:32
+
+To resolve this issue I looked at cart.js.  In the calculateTotal function, i is
+incremented to 3 and then the check is performed for i <= cartItems.length.
+The bug is that <= should be <.
+
+cart.js also has issues where the parameters for the functions are not checked 
+to make sure valid values are being passed from the arguments. The comment in 
+the code states "Bug: Missing validation for discountRate" inside the applyDiscount 
+function.   Also, there is a comment in the code that states "Bug: total may not be a number" 
+inside the generateReceipt function.
+
+To resolve issues of data validation I added try/catch blocks to validate that the 
+data received into the parameters is correct.  
+
+-Explain how debugging tools helped you locate and resolve issues.
+
+I used breakpoints and the debugger statement to pause the execution of the 
+code so that I could inspect the values of variables and see the flow 
+of the program.  I examined error messages in the console to locate issues.  
+I analyzed the call stack to trace the sequence of function calls that 
+led to each error. 
